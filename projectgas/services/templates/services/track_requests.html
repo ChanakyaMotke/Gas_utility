@@ -1,0 +1,21 @@
+<!-- track.html -->
+
+
+{% block content %}
+<h1>Your Submitted Service Requests</h1>
+
+{% if service_requests %}
+<ul>
+    {% for request in service_requests %}
+    <li>
+        <p><strong>Request Type:</strong> {{ request.get_request_type_display }}</p>
+        <p><strong>Description:</strong> {{ request.description }}</p>
+        <p><strong>Status:</strong> {{ request.status }}</p>
+        <p><strong>Created at:</strong> {{ request.created_at }}</p>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>You have no service requests yet.</p>
+{% endif %}
+{% endblock %}
