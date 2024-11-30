@@ -12,5 +12,5 @@ A web application built with Django to allow users to submit and track their ser
 ## Technologies Used
 - **Django**: Python web framework.
 - **Bootstrap**: Front-end framework for responsive design.
--
+
 
