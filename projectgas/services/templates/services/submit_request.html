@@ -1,0 +1,55 @@
+<!-- templates/submit.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Service Request</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Submit Service Request</h2>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="request_type">Request Type</label>
+                <select id="request_type" name="request_type" class="form-control">
+                    <option value="Leak">Gas Leak</option>
+                    <option value="No Gas">No Gas Supply</option>
+                    <option value="General Inquiry">General Inquiry</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="details">Request Details</label>
+                <textarea id="details" name="details" class="form-control" rows="4" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="file">Attach a File</label>
+                <input type="file" id="file" name="file" class="form-control">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit Request</button>
+        </form>
+    </div>
+
+    
+</body>
+
+
+</html>
+
